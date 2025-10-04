@@ -101,6 +101,62 @@ class Polynomial:
         """Return degree of polynomial"""
         return len(self.coeffs) - 1
 
+    def quo_rem(self, other):
+        """
+        Polynomial division with remainder
+        Returns (quotient, remainder) such that self = quotient * other + remainder
+        """
+        if isinstance(other, Polynomial):
+            dividend = self.coeffs.copy()
+            divisor = other.coeffs.copy()
+
+            if len(divisor) == 1 and divisor[0] == 0:
+                raise ZeroDivisionError("Division by zero polynomial")
+
+            quotient = []
+            while len(dividend) >= len(divisor):
+                # Leading coefficient of dividend / leading coefficient of divisor
+                lead_div = dividend[-1]
+                lead_dvs = divisor[-1]
+                # Compute modular inverse
+                coeff = (lead_div * pow(lead_dvs, self.modulus - 2, self.modulus)) % self.modulus
+                quotient.append(coeff)
+
+                # Subtract divisor * coeff * x^(deg_diff) from dividend
+                deg_diff = len(dividend) - len(divisor)
+                for i in range(len(divisor)):
+                    dividend[deg_diff + i] = (dividend[deg_diff + i] - coeff * divisor[i]) % self.modulus
+
+                dividend.pop()
+
+            quotient.reverse()
+            if not quotient:
+                quotient = [0]
+
+            return Polynomial(quotient, self.modulus), Polynomial(dividend if dividend else [0], self.modulus)
+        else:
+            raise TypeError("Can only divide by another polynomial")
+
+    def divides(self, other):
+        """Check if self divides other (i.e., other % self == 0)"""
+        _, remainder = other.quo_rem(self)
+        return all(c == 0 for c in remainder.coeffs)
+
+    def __eq__(self, other):
+        """Check polynomial equality"""
+        if isinstance(other, int):
+            return len(self.coeffs) == 1 and self.coeffs[0] == other % self.modulus
+        if not isinstance(other, Polynomial):
+            return False
+        # Compare coefficients, accounting for different lengths
+        max_len = max(len(self.coeffs), len(other.coeffs))
+        for i in range(max_len):
+            a = self.coeffs[i] if i < len(self.coeffs) else 0
+            b = other.coeffs[i] if i < len(other.coeffs) else 0
+            if a != b:
+                return False
+        return True
+
     def __repr__(self):
         if len(self.coeffs) == 0:
             return "0"
