@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Fibonacci Squared Constraint System
 Based on PlonK Tutorial constraints for computing F_4^2

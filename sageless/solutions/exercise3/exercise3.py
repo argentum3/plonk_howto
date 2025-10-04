@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Exercise 3 Solution: Polynomial Interpolation for PLONK
 Represents the vectors LI, RI, O and selectors SL, SR, SM as polynomials over F_p

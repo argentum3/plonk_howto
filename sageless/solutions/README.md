@@ -34,9 +34,32 @@ solutions/
 ## 🚀 Quick Start
 
 ### Prerequisites
+
+All Python scripts use **portable shebangs** (`#!/usr/bin/env python3`) that work on any system.
+
+**Recommended: Helper Script (Guaranteed Venv)**
 ```bash
-pip install py_ecc numpy
+# From repo root - always uses venv Python, no activation needed
+./run.sh sageless/solutions/exercise1/constraints.py
+./run.sh sageless/solutions/exercise6/exercise6.py
 ```
+
+**Alternative: Activate Venv Then Run**
+```bash
+source .venv/bin/activate
+# Now scripts automatically use venv Python
+./sageless/solutions/exercise1/constraints.py
+./sageless/solutions/exercise6/exercise6.py
+```
+
+**First Time Setup:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install py_ecc numpy jupyterlab
+```
+
+See [docs/VENV_SETUP.md](docs/VENV_SETUP.md) for complete portable venv configuration details.
 
 ### Run Exercises
 
@@ -44,33 +67,28 @@ Each exercise can be run from its own directory:
 
 ```bash
 # Exercise 1 - Constraint System
-cd exercise1
-python3 constraints.py
+./exercise1/constraints.py
 
 # Exercise 3 - Polynomial Interpolation
-cd exercise3
-python3 exercise3.py
+./exercise3/exercise3.py
 
 # Exercise 4 - Vanishing Polynomials
-cd exercise4
-python3 exercise4.py
+./exercise4/exercise4.py
 
 # Exercise 5 - Schwartz-Zippel Checks
-cd exercise5
-python3 exercise5.py
+./exercise5/exercise5.py
 
 # Exercise 6 - Bilinearity of Pairings
-cd exercise6
-source ../../../.venv/bin/activate
-python exercise6.py
+./exercise6/exercise6.py
 ```
 
-Or from the solutions directory:
+Or from the repo root:
 
 ```bash
-cd /Users/boy/projects/plonk/sageless/solutions
-python3 exercise4/exercise4.py
-python3 exercise5/exercise5.py
+./sageless/solutions/exercise1/constraints.py
+./sageless/solutions/exercise4/exercise4.py
+./sageless/solutions/exercise5/exercise5.py
+./sageless/solutions/exercise6/exercise6.py
 ```
 
 ## 📚 Documentation
@@ -78,6 +96,7 @@ python3 exercise5/exercise5.py
 All documentation is in the **[docs/](docs/)** directory:
 
 - **[docs/README.md](docs/README.md)** - Comprehensive guide with detailed explanations
+- **[docs/VENV_SETUP.md](docs/VENV_SETUP.md)** - Virtual environment configuration for all scripts
 - **[docs/SCHWARTZ_ZIPPEL_EXPLAINED.md](docs/SCHWARTZ_ZIPPEL_EXPLAINED.md)** - Schwartz-Zippel lemma in simple terms
 - **[docs/EXERCISE4_SUMMARY.md](docs/EXERCISE4_SUMMARY.md)** - Vanishing polynomials explained
 - **[docs/EXERCISE5_SUMMARY.md](docs/EXERCISE5_SUMMARY.md)** - Probabilistic equality checks

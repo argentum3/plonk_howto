@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Exercise 6: Bilinearity of Pairings
 

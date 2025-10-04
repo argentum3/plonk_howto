@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Exercise 4 Solution: Vanishing Polynomials and Quotient Polynomials
 

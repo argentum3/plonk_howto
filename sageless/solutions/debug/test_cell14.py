@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Test script to verify Cell 14 works with the fixed Polynomial class
 This simulates running cells 10-14 in sequence

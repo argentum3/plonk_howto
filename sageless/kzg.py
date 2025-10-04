@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 KZG polynomial commitments using BN254 curve - SageMath-free version
 Uses py_ecc library for elliptic curve operations and pairings

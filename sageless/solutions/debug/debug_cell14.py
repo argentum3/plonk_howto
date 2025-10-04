@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Debug and fix for Cell 14: Polynomial Composition Issue
 
