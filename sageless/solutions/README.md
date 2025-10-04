@@ -17,6 +17,8 @@ solutions/
 │   └── exercise4.py
 ├── exercise5/            # Exercise 5: Schwartz-Zippel checks
 │   └── exercise5.py
+├── exercise6/            # Exercise 6: Bilinearity of pairings
+│   └── exercise6.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -56,6 +58,11 @@ python3 exercise4.py
 # Exercise 5 - Schwartz-Zippel Checks
 cd exercise5
 python3 exercise5.py
+
+# Exercise 6 - Bilinearity of Pairings
+cd exercise6
+source ../../../.venv/bin/activate
+python exercise6.py
 ```
 
 Or from the solutions directory:
@@ -115,6 +122,16 @@ Probabilistic equality verification at random points.
 - **Imports from:** `lib/polynomials`
 - **Checks:** t(42), f1(74102), f2(987654321987654321)
 - **Security:** Error probability ≈ 10⁻⁷⁵
+
+---
+
+### Exercise 6: Bilinearity of Pairings
+**Location:** `exercise6/exercise6.py`
+
+Verifies the bilinearity property of the pairing function.
+- **Imports from:** `kzg` (for BN254 parameters)
+- **Verifies:** e([s]·P, Q) = e(P, [s]·Q) = e(P, Q)^s
+- **Requires:** py_ecc library (run with venv activated)
 
 ## 🧪 Testing
 
@@ -253,6 +270,7 @@ All exercises have been tested and verified:
 - [x] Exercise 3 - Polynomials interpolate correctly
 - [x] Exercise 4 - Vanishing polynomials and quotients computed
 - [x] Exercise 5 - Schwartz-Zippel checks pass
+- [x] Exercise 6 - Bilinearity verification passes
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
