@@ -13,12 +13,16 @@ This makes verification O(d) instead of O(d^2) - much more succinct!
 """
 
 import sys
+import os
 import io
 
-# Suppress exercise3 output
+# Add parent directory to path to access lib
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+# Suppress lib output
 old_stdout = sys.stdout
 sys.stdout = io.StringIO()
-from exercise3 import *
+from lib.polynomials import *
 sys.stdout = old_stdout
 
 print("=" * 70)

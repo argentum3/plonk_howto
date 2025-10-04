@@ -4,10 +4,13 @@ This simulates running cells 10-14 in sequence
 """
 
 import sys
-sys.path.append('..')
+import os
 
-print("Importing from exercise3.py (which has the fix)...")
-from exercise3 import Polynomial, PolynomialVar, p, interpolate, I, LI, RI, O, a, b, c
+# Add parent directory to path to access lib
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+print("Importing from lib/polynomials.py (which has the fix)...")
+from lib.polynomials import Polynomial, PolynomialVar, p, interpolate, I, LI, RI, O, a, b, c
 
 print("✓ Imports successful")
 

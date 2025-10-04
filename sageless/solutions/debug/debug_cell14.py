@@ -7,10 +7,13 @@ the composed polynomial a(x+1), not try to evaluate a at polynomial x+1.
 """
 
 import sys
-sys.path.append('..')
+import os
 
-# Import from exercise3
-from exercise3 import Polynomial, PolynomialVar, p, interpolate, I, LI, RI, O, a, b, c
+# Add parent directory to path to access lib
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+# Import from lib
+from lib.polynomials import Polynomial, PolynomialVar, p, interpolate, I, LI, RI, O, a, b, c
 
 print("=" * 70)
 print("DEBUGGING CELL 14: Polynomial Composition")

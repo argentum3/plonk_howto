@@ -6,9 +6,11 @@ for the constraint polynomials using polynomial division.
 """
 
 import sys
-sys.path.append('..')
+import os
+# Add parent directory to path to access lib
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from exercise3 import Polynomial, PolynomialVar, p, interpolate, I, LI, RI, O, a, b, c, qL, qR, qM
+from lib.polynomials import Polynomial, PolynomialVar, p, interpolate, I, LI, RI, O, a, b, c, qL, qR, qM
 
 print("=" * 70)
 print("EXERCISE 4: Vanishing Polynomials and Polynomial Division")
