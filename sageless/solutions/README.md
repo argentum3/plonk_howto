@@ -21,6 +21,8 @@ solutions/
 │   └── exercise6.py
 ├── exercise7/            # Exercise 7: KZG trusted setup
 │   └── exercise7.py
+├── exercise8/            # Exercise 8: KZG commitment function
+│   └── exercise8.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -86,6 +88,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 7 - KZG Trusted Setup
 ./exercise7/exercise7.py
+
+# Exercise 8 - KZG Commitment Function
+./exercise8/exercise8.py
 ```
 
 Or from the repo root:
@@ -96,6 +101,7 @@ Or from the repo root:
 ./sageless/solutions/exercise5/exercise5.py
 ./sageless/solutions/exercise6/exercise6.py
 ./sageless/solutions/exercise7/exercise7.py
+./sageless/solutions/exercise8/exercise8.py
 ```
 
 ## 📚 Documentation
@@ -169,6 +175,16 @@ Computes the trusted setup parameters for KZG commitments.
 - **Computes:** S₁ = [P, τ·P, τ²·P, ..., τ¹⁰·P] and S₂ = τ·Q
 - **Parameters:** τ=424242 (toxic waste), l=10 (max degree)
 - **Security:** Demonstrates why τ must be destroyed after setup
+
+---
+
+### Exercise 8: KZG Commitment Function
+**Location:** `exercise8/exercise8.py`
+
+Implements the polynomial commitment function using KZG.
+- **Function:** `commitment(S1, p)` returns commitment point `c`
+- **Formula:** c = Σᵢ aᵢ·S1[i] = p(τ)·P
+- **Properties:** Binding, hiding, succinct, homomorphic
 
 ## 🧪 Testing
 
@@ -309,6 +325,7 @@ All exercises have been tested and verified:
 - [x] Exercise 5 - Schwartz-Zippel checks pass
 - [x] Exercise 6 - Bilinearity verification passes
 - [x] Exercise 7 - Trusted setup computed correctly
+- [x] Exercise 8 - Commitment function works, matches expected output
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
