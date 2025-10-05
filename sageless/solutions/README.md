@@ -19,11 +19,14 @@ solutions/
 │   └── exercise5.py
 ├── exercise6/            # Exercise 6: Bilinearity of pairings
 │   └── exercise6.py
+├── exercise7/            # Exercise 7: KZG trusted setup
+│   └── exercise7.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
 └── docs/                 # All documentation
     ├── README.md                      # Detailed documentation
+    ├── KZG_COMMITMENTS_EXPLAINED.md  # KZG commitment scheme explained
     ├── SCHWARTZ_ZIPPEL_EXPLAINED.md  # Schwartz-Zippel lemma explained
     ├── EXERCISE4_SUMMARY.md          # Exercise 4 summary
     ├── EXERCISE5_SUMMARY.md          # Exercise 5 summary
@@ -80,6 +83,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 6 - Bilinearity of Pairings
 ./exercise6/exercise6.py
+
+# Exercise 7 - KZG Trusted Setup
+./exercise7/exercise7.py
 ```
 
 Or from the repo root:
@@ -89,6 +95,7 @@ Or from the repo root:
 ./sageless/solutions/exercise4/exercise4.py
 ./sageless/solutions/exercise5/exercise5.py
 ./sageless/solutions/exercise6/exercise6.py
+./sageless/solutions/exercise7/exercise7.py
 ```
 
 ## 📚 Documentation
@@ -96,6 +103,7 @@ Or from the repo root:
 All documentation is in the **[docs/](docs/)** directory:
 
 - **[docs/README.md](docs/README.md)** - Comprehensive guide with detailed explanations
+- **[docs/KZG_COMMITMENTS_EXPLAINED.md](docs/KZG_COMMITMENTS_EXPLAINED.md)** - KZG commitment scheme explained simply
 - **[docs/VENV_SETUP.md](docs/VENV_SETUP.md)** - Virtual environment configuration for all scripts
 - **[docs/SCHWARTZ_ZIPPEL_EXPLAINED.md](docs/SCHWARTZ_ZIPPEL_EXPLAINED.md)** - Schwartz-Zippel lemma in simple terms
 - **[docs/EXERCISE4_SUMMARY.md](docs/EXERCISE4_SUMMARY.md)** - Vanishing polynomials explained
@@ -151,6 +159,16 @@ Verifies the bilinearity property of the pairing function.
 - **Imports from:** `kzg` (for BN254 parameters)
 - **Verifies:** e([s]·P, Q) = e(P, [s]·Q) = e(P, Q)^s
 - **Requires:** py_ecc library (run with venv activated)
+
+---
+
+### Exercise 7: KZG Trusted Setup
+**Location:** `exercise7/exercise7.py`
+
+Computes the trusted setup parameters for KZG commitments.
+- **Computes:** S₁ = [P, τ·P, τ²·P, ..., τ¹⁰·P] and S₂ = τ·Q
+- **Parameters:** τ=424242 (toxic waste), l=10 (max degree)
+- **Security:** Demonstrates why τ must be destroyed after setup
 
 ## 🧪 Testing
 
@@ -290,6 +308,7 @@ All exercises have been tested and verified:
 - [x] Exercise 4 - Vanishing polynomials and quotients computed
 - [x] Exercise 5 - Schwartz-Zippel checks pass
 - [x] Exercise 6 - Bilinearity verification passes
+- [x] Exercise 7 - Trusted setup computed correctly
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
