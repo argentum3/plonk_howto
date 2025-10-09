@@ -23,6 +23,8 @@ solutions/
 │   └── exercise7.py
 ├── exercise8/            # Exercise 8: KZG commitment function
 │   └── exercise8.py
+├── exercise9/            # Exercise 9: KZG proof generation
+│   └── exercise9.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -91,6 +93,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 8 - KZG Commitment Function
 ./exercise8/exercise8.py
+
+# Exercise 9 - KZG Proof Generation
+./exercise9/exercise9.py
 ```
 
 Or from the repo root:
@@ -102,6 +107,7 @@ Or from the repo root:
 ./sageless/solutions/exercise6/exercise6.py
 ./sageless/solutions/exercise7/exercise7.py
 ./sageless/solutions/exercise8/exercise8.py
+./sageless/solutions/exercise9/exercise9.py
 ```
 
 ## 📚 Documentation
@@ -185,6 +191,17 @@ Implements the polynomial commitment function using KZG.
 - **Function:** `commitment(S1, p)` returns commitment point `c`
 - **Formula:** c = Σᵢ aᵢ·S1[i] = p(τ)·P
 - **Properties:** Binding, hiding, succinct, homomorphic
+
+---
+
+### Exercise 9: KZG Proof Generation
+**Location:** `exercise9/exercise9.py`
+
+Implements the proof generation function for KZG polynomial evaluation.
+- **Function:** `proof(S1, Qc)` returns proof point `π`
+- **Formula:** π = Σᵢ bᵢ·S1[i] = Qc(τ)·P
+- **Quotient:** Qc(x) = (f(x) - f(γ)) / (x - γ)
+- **Test case:** γ = 151515, a(γ) = 1739069066686765
 
 ## 🧪 Testing
 
@@ -326,6 +343,7 @@ All exercises have been tested and verified:
 - [x] Exercise 6 - Bilinearity verification passes
 - [x] Exercise 7 - Trusted setup computed correctly
 - [x] Exercise 8 - Commitment function works, matches expected output
+- [x] Exercise 9 - Proof generation works, matches expected output
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
