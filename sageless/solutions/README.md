@@ -25,6 +25,8 @@ solutions/
 │   └── exercise8.py
 ├── exercise9/            # Exercise 9: KZG proof generation
 │   └── exercise9.py
+├── exercise10/           # Exercise 10: KZG verification
+│   └── exercise10.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -96,6 +98,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 9 - KZG Proof Generation
 ./exercise9/exercise9.py
+
+# Exercise 10 - KZG Verification
+./exercise10/exercise10.py
 ```
 
 Or from the repo root:
@@ -108,6 +113,7 @@ Or from the repo root:
 ./sageless/solutions/exercise7/exercise7.py
 ./sageless/solutions/exercise8/exercise8.py
 ./sageless/solutions/exercise9/exercise9.py
+./sageless/solutions/exercise10/exercise10.py
 ```
 
 ## 📚 Documentation
@@ -202,6 +208,17 @@ Implements the proof generation function for KZG polynomial evaluation.
 - **Formula:** π = Σᵢ bᵢ·S1[i] = Qc(τ)·P
 - **Quotient:** Qc(x) = (f(x) - f(γ)) / (x - γ)
 - **Test case:** γ = 151515, a(γ) = 1739069066686765
+
+---
+
+### Exercise 10: KZG Verification
+**Location:** `exercise10/exercise10.py`
+
+Implements the verification function for KZG polynomial commitments.
+- **Function:** `verification(c, π, γ, b)` returns True/False
+- **Equation:** e(π, S₂ - γ·Q) ?= e(c - b·P, Q)
+- **Purpose:** Verify polynomial evaluation without knowing τ
+- **Tests:** Both valid and invalid proofs
 
 ## 🧪 Testing
 
@@ -344,6 +361,7 @@ All exercises have been tested and verified:
 - [x] Exercise 7 - Trusted setup computed correctly
 - [x] Exercise 8 - Commitment function works, matches expected output
 - [x] Exercise 9 - Proof generation works, matches expected output
+- [x] Exercise 10 - Verification function works, correctly validates proofs
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
