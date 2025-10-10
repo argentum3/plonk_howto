@@ -27,6 +27,8 @@ solutions/
 │   └── exercise9.py
 ├── exercise10/           # Exercise 10: KZG verification
 │   └── exercise10.py
+├── exercise11/           # Exercise 11: Finding generator of multiplicative subgroup
+│   └── exercise11.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -101,6 +103,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 10 - KZG Verification
 ./exercise10/exercise10.py
+
+# Exercise 11 - Multiplicative Subgroup Generator
+./exercise11/exercise11.py
 ```
 
 Or from the repo root:
@@ -114,6 +119,7 @@ Or from the repo root:
 ./sageless/solutions/exercise8/exercise8.py
 ./sageless/solutions/exercise9/exercise9.py
 ./sageless/solutions/exercise10/exercise10.py
+./sageless/solutions/exercise11/exercise11.py
 ```
 
 ## 📚 Documentation
@@ -219,6 +225,17 @@ Implements the verification function for KZG polynomial commitments.
 - **Equation:** e(π, S₂ - γ·Q) ?= e(c - b·P, Q)
 - **Purpose:** Verify polynomial evaluation without knowing τ
 - **Tests:** Both valid and invalid proofs
+
+---
+
+### Exercise 11: Multiplicative Subgroup Generator
+**Location:** `exercise11/exercise11.py`
+
+Finds a generator ω of a multiplicative domain of order 4.
+- **Algorithm:** Find smallest h such that ω = h^r has order 4, where r = (p-1)/4
+- **Result:** ω found using h = 5
+- **Domain:** Ω = {ω, ω^2, ω^3, 1}
+- **Advantage:** Vanishing polynomial Z(x) = x^4 - 1 (constant time!)
 
 ## 🧪 Testing
 
@@ -362,6 +379,7 @@ All exercises have been tested and verified:
 - [x] Exercise 8 - Commitment function works, matches expected output
 - [x] Exercise 9 - Proof generation works, matches expected output
 - [x] Exercise 10 - Verification function works, correctly validates proofs
+- [x] Exercise 11 - Generator ω of order 4 found (h=5), domain verified
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
