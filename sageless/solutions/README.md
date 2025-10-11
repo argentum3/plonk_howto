@@ -29,6 +29,8 @@ solutions/
 │   └── exercise10.py
 ├── exercise11/           # Exercise 11: Finding generator of multiplicative subgroup
 │   └── exercise11.py
+├── exercise12/           # Exercise 12: Interpolation over multiplicative domain
+│   └── exercise12.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -106,6 +108,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 11 - Multiplicative Subgroup Generator
 ./exercise11/exercise11.py
+
+# Exercise 12 - Interpolation over Multiplicative Domain
+./exercise12/exercise12.py
 ```
 
 Or from the repo root:
@@ -120,6 +125,7 @@ Or from the repo root:
 ./sageless/solutions/exercise9/exercise9.py
 ./sageless/solutions/exercise10/exercise10.py
 ./sageless/solutions/exercise11/exercise11.py
+./sageless/solutions/exercise12/exercise12.py
 ```
 
 ## 📚 Documentation
@@ -236,6 +242,17 @@ Finds a generator ω of a multiplicative domain of order 4.
 - **Result:** ω found using h = 5
 - **Domain:** Ω = {ω, ω^2, ω^3, 1}
 - **Advantage:** Vanishing polynomial Z(x) = x^4 - 1 (constant time!)
+
+---
+
+### Exercise 12: Interpolation over Multiplicative Domain
+**Location:** `exercise12/exercise12.py`
+
+Re-interpolates witness and selector polynomials over multiplicative domain Ω.
+- **Witness polynomials:** a(x), b(x), c(x) over Ω = {ω, ω^2, ω^3, 1}
+- **Selector polynomials:** qL(x), qR(x), qM(x) over Ω
+- **Mapping:** Gate i → ω^i
+- **Result:** Different coefficients than over I, but same values at domain points
 
 ## 🧪 Testing
 
@@ -380,6 +397,7 @@ All exercises have been tested and verified:
 - [x] Exercise 9 - Proof generation works, matches expected output
 - [x] Exercise 10 - Verification function works, correctly validates proofs
 - [x] Exercise 11 - Generator ω of order 4 found (h=5), domain verified
+- [x] Exercise 12 - Polynomials interpolated over Ω, all evaluations correct
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
