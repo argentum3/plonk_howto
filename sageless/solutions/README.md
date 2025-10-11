@@ -39,6 +39,8 @@ solutions/
 │   └── exercise15.py
 ├── exercise16/           # Exercise 16: Accumulator functions for grand product
 │   └── exercise16.py
+├── exercise17/           # Exercise 17: Interpolating z, N, D polynomials
+│   └── exercise17.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -131,6 +133,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 16 - Accumulator Functions
 ./exercise16/exercise16.py
+
+# Exercise 17 - Interpolating z, N, D Polynomials
+./exercise17/exercise17.py
 ```
 
 Or from the repo root:
@@ -150,6 +155,7 @@ Or from the repo root:
 ./sageless/solutions/exercise14/exercise14.py
 ./sageless/solutions/exercise15/exercise15.py
 ./sageless/solutions/exercise16/exercise16.py
+./sageless/solutions/exercise17/exercise17.py
 ```
 
 ## 📚 Documentation
@@ -325,6 +331,18 @@ Implements accumulator functions computing partial products of numerators/denomi
 - **Grand product check:** N_n / D_n = 1 ✓
 - **Result:** Confirms permutation correctly encodes copy constraints ✓
 
+---
+
+### Exercise 17: Interpolating z, N, D Polynomials
+**Location:** `exercise17/exercise17.py`
+
+Computes and interpolates the three core polynomials for PlonK's permutation argument.
+- **z polynomial:** Recursive accumulator with z(ω) = 1, z(ω^(i+1)) = z(ω^i)·N(ω^i)/D(ω^i)
+- **N polynomial:** Product of numerators across columns at each point
+- **D polynomial:** Product of denominators across columns at each point
+- **Validation:** ZH divides L1*(z-1) ✓ and z*N - D*z(x*ω) ✓
+- **Result:** Successfully encodes permutation argument for copy constraints ✓
+
 ## 🧪 Testing
 
 Run all tests from the `debug/` directory:
@@ -473,6 +491,7 @@ All exercises have been tested and verified:
 - [x] Exercise 14 - Permutation σ computed correctly, all cycles verified
 - [x] Exercise 15 - Numerator and denominator functions implemented, all tests pass
 - [x] Exercise 16 - Accumulator functions implemented, grand product check passes
+- [x] Exercise 17 - z, N, D polynomials interpolated, both validation checks pass
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
