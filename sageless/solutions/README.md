@@ -35,6 +35,8 @@ solutions/
 │   └── exercise13.py
 ├── exercise14/           # Exercise 14: Computing permutation for copy constraints
 │   └── exercise14.py
+├── exercise15/           # Exercise 15: Numerator and denominator for grand product
+│   └── exercise15.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -121,6 +123,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 14 - Computing Permutation for Copy Constraints
 ./exercise14/exercise14.py
+
+# Exercise 15 - Numerator and Denominator for Grand Product
+./exercise15/exercise15.py
 ```
 
 Or from the repo root:
@@ -138,6 +143,7 @@ Or from the repo root:
 ./sageless/solutions/exercise12/exercise12.py
 ./sageless/solutions/exercise13/exercise13.py
 ./sageless/solutions/exercise14/exercise14.py
+./sageless/solutions/exercise15/exercise15.py
 ```
 
 ## 📚 Documentation
@@ -286,8 +292,20 @@ Computes permutation σ encoding copy constraints (wiring) between circuit colum
 - **Permutation:** σ: {1..12} → {1..12} over all positions
 - **Position mapping:** pos(column, index) = (column-1)*n + index
 - **Cycles:** 6 cycles encoding value equalities
-- **Key cycle:** (3, 9, 6) for value 1 from c[1]
+- **Key cycle:** (3, 6, 9) for value 1 from c[1]
 - **Result:** All 12 positions mapped correctly ✓
+
+---
+
+### Exercise 15: Numerator and Denominator for Grand Product Argument
+**Location:** `exercise15/exercise15.py`
+
+Implements numerator and denominator functions for PlonK's grand product argument.
+- **Numerator:** pos(column, i) + β·f(ω^i) + γ
+- **Denominator:** σ(pos(column, i)) + β·f(ω^i) + γ
+- **Purpose:** Verify permutation without revealing wire values
+- **Key insight:** Grand product = 1 if permutation is valid
+- **Result:** All test cases pass (87, 90, 94, 91) ✓
 
 ## 🧪 Testing
 
@@ -435,6 +453,7 @@ All exercises have been tested and verified:
 - [x] Exercise 12 - Polynomials interpolated over Ω, all evaluations correct
 - [x] Exercise 13 - Exact division verified, remainder R(x) = 0
 - [x] Exercise 14 - Permutation σ computed correctly, all cycles verified
+- [x] Exercise 15 - Numerator and denominator functions implemented, all tests pass
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
