@@ -33,6 +33,8 @@ solutions/
 │   └── exercise12.py
 ├── exercise13/           # Exercise 13: Verifying exact division (zero remainder)
 │   └── exercise13.py
+├── exercise14/           # Exercise 14: Computing permutation for copy constraints
+│   └── exercise14.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -116,6 +118,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 13 - Verifying Exact Division
 ./exercise13/exercise13.py
+
+# Exercise 14 - Computing Permutation for Copy Constraints
+./exercise14/exercise14.py
 ```
 
 Or from the repo root:
@@ -132,6 +137,7 @@ Or from the repo root:
 ./sageless/solutions/exercise11/exercise11.py
 ./sageless/solutions/exercise12/exercise12.py
 ./sageless/solutions/exercise13/exercise13.py
+./sageless/solutions/exercise14/exercise14.py
 ```
 
 ## 📚 Documentation
@@ -270,6 +276,18 @@ Verifies that gate constraint polynomial t(x) is exactly divisible by Z(x).
 - **Vanishing:** Z(x) = x^4 - 1
 - **Division:** t(x) = Q(x)·Z(x) + R(x)
 - **Result:** Remainder R(x) = 0 ✓ (exact division!)
+
+---
+
+### Exercise 14: Computing Permutation for Copy Constraints
+**Location:** `exercise14/exercise14.py`
+
+Computes permutation σ encoding copy constraints (wiring) between circuit columns.
+- **Permutation:** σ: {1..12} → {1..12} over all positions
+- **Position mapping:** pos(column, index) = (column-1)*n + index
+- **Cycles:** 6 cycles encoding value equalities
+- **Key cycle:** (3, 9, 6) for value 1 from c[1]
+- **Result:** All 12 positions mapped correctly ✓
 
 ## 🧪 Testing
 
@@ -416,6 +434,7 @@ All exercises have been tested and verified:
 - [x] Exercise 11 - Generator ω of order 4 found (h=5), domain verified
 - [x] Exercise 12 - Polynomials interpolated over Ω, all evaluations correct
 - [x] Exercise 13 - Exact division verified, remainder R(x) = 0
+- [x] Exercise 14 - Permutation σ computed correctly, all cycles verified
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
