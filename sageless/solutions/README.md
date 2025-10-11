@@ -41,6 +41,8 @@ solutions/
 │   └── exercise16.py
 ├── exercise17/           # Exercise 17: Interpolating z, N, D polynomials
 │   └── exercise17.py
+├── exercise18/           # Exercise 18: Blinding polynomials for zero-knowledge
+│   └── exercise18.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -136,6 +138,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 17 - Interpolating z, N, D Polynomials
 ./exercise17/exercise17.py
+
+# Exercise 18 - Blinding Polynomials for Zero-Knowledge
+./exercise18/exercise18.py
 ```
 
 Or from the repo root:
@@ -156,6 +161,7 @@ Or from the repo root:
 ./sageless/solutions/exercise15/exercise15.py
 ./sageless/solutions/exercise16/exercise16.py
 ./sageless/solutions/exercise17/exercise17.py
+./sageless/solutions/exercise18/exercise18.py
 ```
 
 ## 📚 Documentation
@@ -343,6 +349,18 @@ Computes and interpolates the three core polynomials for PlonK's permutation arg
 - **Validation:** ZH divides L1*(z-1) ✓ and z*N - D*z(x*ω) ✓
 - **Result:** Successfully encodes permutation argument for copy constraints ✓
 
+---
+
+### Exercise 18: Blinding Polynomials for Zero-Knowledge
+**Location:** `exercise18/exercise18.py`
+
+Implements polynomial blinding to achieve zero-knowledge properties in PlonK.
+- **Blinding formula:** f_blind(x) = f(x) + p(x)·ZH(x)
+- **Witness blinding:** b_blind, c_blind created with random p(x)
+- **Accumulator blinding:** z_poly_blind preserves recursive constraint
+- **Key property:** f_blind(ω^i) = f(ω^i) for all domain points (ZH(ω^i) = 0)
+- **Result:** Hides witness values while maintaining correctness ✓
+
 ## 🧪 Testing
 
 Run all tests from the `debug/` directory:
@@ -492,6 +510,7 @@ All exercises have been tested and verified:
 - [x] Exercise 15 - Numerator and denominator functions implemented, all tests pass
 - [x] Exercise 16 - Accumulator functions implemented, grand product check passes
 - [x] Exercise 17 - z, N, D polynomials interpolated, both validation checks pass
+- [x] Exercise 18 - Polynomial blinding implemented, zero-knowledge properties achieved
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
