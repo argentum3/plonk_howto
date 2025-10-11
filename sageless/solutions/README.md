@@ -361,6 +361,19 @@ Implements polynomial blinding to achieve zero-knowledge properties in PlonK.
 - **Key property:** f_blind(ω^i) = f(ω^i) for all domain points (ZH(ω^i) = 0)
 - **Result:** Hides witness values while maintaining correctness ✓
 
+---
+
+### Exercise 19: Building Fiat-Shamir Transcript - Step 1
+**Location:** `exercise19/exercise19.py`
+
+Begins non-interactive proof construction using the Fiat-Shamir transform.
+- **Public values:** Evaluate a(ω)=0, b(ω)=1 (inputs) and c(ω^4)=9 (output)
+- **Transcript building:** Push values to empty transcript in order
+- **KZG commitments:** Compute c_a, c_b, c_c for blinded witness polynomials
+- **Opening proofs:** Compute proofs for witness evaluations (not added to transcript)
+- **Verification:** All opening proofs verified successfully ✓
+- **Result:** Transcript contains public values and commitments for challenge generation
+
 ## 🧪 Testing
 
 Run all tests from the `debug/` directory:
