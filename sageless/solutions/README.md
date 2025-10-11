@@ -374,6 +374,20 @@ Begins non-interactive proof construction using the Fiat-Shamir transform.
 - **Verification:** All opening proofs verified successfully ✓
 - **Result:** Transcript contains public values and commitments for challenge generation
 
+---
+
+### Exercise 20: Challenges and Permutation Polynomials
+**Location:** `exercise20/exercise20.py`
+
+Generates challenges from transcript and computes permutation polynomials.
+- **Challenge β:** Generated from transcript hash, pushed to transcript
+- **Challenge γ:** Generated from updated transcript, pushed to transcript
+- **Permutation polynomials:** Compute z, N, D using β and γ via `interpolate_z_N_D()`
+- **z polynomial:** Accumulator satisfying z(ω)=1 and recursive constraint
+- **Commitment:** Commit to z_poly and push c_z to transcript
+- **Verification:** ZH divides L1*(z-1) ✓ and z*N - D*z(x*ω) ✓
+- **Result:** Transcript now contains challenges and permutation commitment
+
 ## 🧪 Testing
 
 Run all tests from the `debug/` directory:
