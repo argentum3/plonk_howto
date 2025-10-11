@@ -388,6 +388,22 @@ Generates challenges from transcript and computes permutation polynomials.
 - **Verification:** ZH divides L1*(z-1) ✓ and z*N - D*z(x*ω) ✓
 - **Result:** Transcript now contains challenges and permutation commitment
 
+---
+
+### Exercise 21: Master Polynomial Construction
+**Location:** `exercise21/exercise21.py`
+
+Builds the master polynomial combining gate and permutation constraints.
+- **Challenge α:** Generated from transcript, used to combine constraints
+- **L1 polynomial:** Lagrange basis for first point, enforces boundary conditions
+- **Gate constraint:** t_gates = qM·a_blind·b_blind + qL·a_blind + qR·b_blind - c_blind
+- **Permutation start:** t_perm_start = (z_poly - 1)·L1 enforces z(ω)=1
+- **Permutation step:** t_perm_step = z_poly·N_poly - D_poly·z_poly(x·ω)
+- **Master polynomial:** bigt = t_gates + α·t_perm_start + α²·t_perm_step
+- **Quotient:** quotient_poly = bigt / ZH (degree 9)
+- **Verification:** ZH divides all constraints ✓
+- **Result:** Transcript contains quotient commitment c_t
+
 ## 🧪 Testing
 
 Run all tests from the `debug/` directory:
