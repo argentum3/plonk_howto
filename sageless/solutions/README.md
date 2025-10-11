@@ -31,6 +31,8 @@ solutions/
 │   └── exercise11.py
 ├── exercise12/           # Exercise 12: Interpolation over multiplicative domain
 │   └── exercise12.py
+├── exercise13/           # Exercise 13: Verifying exact division (zero remainder)
+│   └── exercise13.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -111,6 +113,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 12 - Interpolation over Multiplicative Domain
 ./exercise12/exercise12.py
+
+# Exercise 13 - Verifying Exact Division
+./exercise13/exercise13.py
 ```
 
 Or from the repo root:
@@ -126,6 +131,7 @@ Or from the repo root:
 ./sageless/solutions/exercise10/exercise10.py
 ./sageless/solutions/exercise11/exercise11.py
 ./sageless/solutions/exercise12/exercise12.py
+./sageless/solutions/exercise13/exercise13.py
 ```
 
 ## 📚 Documentation
@@ -253,6 +259,17 @@ Re-interpolates witness and selector polynomials over multiplicative domain Ω.
 - **Selector polynomials:** qL(x), qR(x), qM(x) over Ω
 - **Mapping:** Gate i → ω^i
 - **Result:** Different coefficients than over I, but same values at domain points
+
+---
+
+### Exercise 13: Verifying Exact Division
+**Location:** `exercise13/exercise13.py`
+
+Verifies that gate constraint polynomial t(x) is exactly divisible by Z(x).
+- **Constraint:** t(x) = qM·a·b + qL·a + qR·b - c
+- **Vanishing:** Z(x) = x^4 - 1
+- **Division:** t(x) = Q(x)·Z(x) + R(x)
+- **Result:** Remainder R(x) = 0 ✓ (exact division!)
 
 ## 🧪 Testing
 
@@ -398,6 +415,7 @@ All exercises have been tested and verified:
 - [x] Exercise 10 - Verification function works, correctly validates proofs
 - [x] Exercise 11 - Generator ω of order 4 found (h=5), domain verified
 - [x] Exercise 12 - Polynomials interpolated over Ω, all evaluations correct
+- [x] Exercise 13 - Exact division verified, remainder R(x) = 0
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
