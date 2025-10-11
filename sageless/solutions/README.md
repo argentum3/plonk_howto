@@ -404,6 +404,20 @@ Builds the master polynomial combining gate and permutation constraints.
 - **Verification:** ZH divides all constraints ✓
 - **Result:** Transcript contains quotient commitment c_t
 
+---
+
+### Exercise 22: Evaluation Challenge and Opening Proofs
+**Location:** `exercise22/exercise22.py`
+
+Generates evaluation challenge and computes polynomial evaluations with opening proofs.
+- **Challenge ζ:** Random evaluation point generated from transcript
+- **Evaluations at ζ:** a_zeta, b_zeta, c_zeta, z_zeta, t_zeta
+- **Shifted evaluation:** z_zeta_omega = z_poly(ζ·ω) for recursive constraint
+- **Opening proofs:** KZG proofs for all 6 evaluations
+- **Verification:** All opening proofs verified ✓
+- **Proof artifacts:** 5 commitments + 6 evaluations + 6 proofs (constant size!)
+- **Result:** Complete proof ready for verifier
+
 ## 🧪 Testing
 
 Run all tests from the `debug/` directory:
