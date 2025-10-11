@@ -37,6 +37,8 @@ solutions/
 │   └── exercise14.py
 ├── exercise15/           # Exercise 15: Numerator and denominator for grand product
 │   └── exercise15.py
+├── exercise16/           # Exercise 16: Accumulator functions for grand product
+│   └── exercise16.py
 ├── debug/                # Debug and testing scripts
 │   ├── test_cell14.py
 │   └── debug_cell14.py
@@ -126,6 +128,9 @@ Each exercise can be run from its own directory:
 
 # Exercise 15 - Numerator and Denominator for Grand Product
 ./exercise15/exercise15.py
+
+# Exercise 16 - Accumulator Functions
+./exercise16/exercise16.py
 ```
 
 Or from the repo root:
@@ -144,6 +149,7 @@ Or from the repo root:
 ./sageless/solutions/exercise13/exercise13.py
 ./sageless/solutions/exercise14/exercise14.py
 ./sageless/solutions/exercise15/exercise15.py
+./sageless/solutions/exercise16/exercise16.py
 ```
 
 ## 📚 Documentation
@@ -307,6 +313,18 @@ Implements numerator and denominator functions for PlonK's grand product argumen
 - **Key insight:** Grand product = 1 if permutation is valid
 - **Result:** All test cases pass (87, 90, 94, 91) ✓
 
+---
+
+### Exercise 16: Accumulator Functions for Grand Product Argument
+**Location:** `exercise16/exercise16.py`
+
+Implements accumulator functions computing partial products of numerators/denominators.
+- **acc_numerator:** ∏_{j=1}^{i-1} numerator(j, ...)
+- **acc_denominator:** ∏_{j=1}^{i-1} denominator(j, ...)
+- **Range:** Product from j=1 to i-1 (i exclusive)
+- **Grand product check:** N_n / D_n = 1 ✓
+- **Result:** Confirms permutation correctly encodes copy constraints ✓
+
 ## 🧪 Testing
 
 Run all tests from the `debug/` directory:
@@ -454,6 +472,7 @@ All exercises have been tested and verified:
 - [x] Exercise 13 - Exact division verified, remainder R(x) = 0
 - [x] Exercise 14 - Permutation σ computed correctly, all cycles verified
 - [x] Exercise 15 - Numerator and denominator functions implemented, all tests pass
+- [x] Exercise 16 - Accumulator functions implemented, grand product check passes
 - [x] All imports work from new structure
 - [x] Debug scripts functional
 - [x] No SageMath dependencies!
