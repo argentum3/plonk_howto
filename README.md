@@ -2,7 +2,9 @@
 
 Educational implementation of the PlonK zero-knowledge proof system with KZG polynomial commitments on the BN254 curve.
 
-**Original Tutorial:** [zkSecurity PlonK Tutorial](https://plonk.zksecurity.xyz/)
+**Original Tutorial:** [zkSecurity PlonK Tutorial](https://plonk.zksecurity.xyz/) 
+
+Martín Ochoa and David Wong (zkSecurity) created the original notebook that relied on SageMath. The notebook didn't have solutions. This repo removes the Sage dependency and fills in solutions.
 
 ## Key Features
 
