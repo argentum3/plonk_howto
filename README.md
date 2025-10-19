@@ -2,7 +2,7 @@
 
 Educational implementation of the PlonK zero-knowledge proof system with KZG polynomial commitments on the BN254 curve.
 
-**Original Tutorial:** [zkSecurity PlonK Tutorial](https://github.com/zksecurity/plonk-by-finger-exercise)
+**Original Tutorial:** [zkSecurity PlonK Tutorial](https://plonk.zksecurity.xyz/)
 
 ## Key Features
 
