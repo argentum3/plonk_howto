@@ -83,6 +83,8 @@ if Z.divides(t):
 
 **Key Difference**: Syntax is nearly identical! Only change is `x^4` → `x**4` (Python exponentiation operator).
 
+**Important Note**: For modular exponentiation with field elements (not polynomial variables), always use `pow(base, exp, p)` instead of `**` to ensure correct modular reduction and avoid overflow.
+
 ---
 
 ## Example 3: Polynomial Evaluation
@@ -299,7 +301,8 @@ n = 2188824287183927522224640574525727508854836440041603434369820418657580849561
 |-------------------|-------------------|------------|
 | `GF(p)` | Modular arithmetic with `% p` | Easy |
 | `R.<x> = PolynomialRing(F, 'x')` | `x = PolynomialVar()` | Medium |
-| `x^n` | `x**n` | Trivial |
+| `x^n` (polynomial var) | `x**n` | Trivial |
+| `a^n` (field element) | `pow(a, n, p)` | Easy |
 | `show()` | `print()` | Trivial |
 | `Integer()` | `int()` | Trivial |
 | `prod()` | `functools.reduce(...)` | Easy |
@@ -307,6 +310,44 @@ n = 2188824287183927522224640574525727508854836440041603434369820418657580849561
 | `.divides()` | Custom implementation | Medium |
 | `.random_element()` | Custom function | Easy |
 | `ate_pairing()` | `py_ecc.bn128.pairing()` | Medium |
+
+---
+
+## Example 11: Modular Exponentiation (Critical for Finite Fields)
+
+### BEFORE (SageMath)
+```python
+# SageMath automatically handles modular arithmetic in GF(p)
+F = GF(p)
+ω = F(some_value)
+result = ω^n  # Automatically computed in GF(p)
+ZH_z = zeta_v^n - 1
+```
+
+### AFTER (Python)
+```python
+# Must explicitly use pow() for modular exponentiation
+ω = some_value
+result = pow(ω, n, p)  # Efficient modular exponentiation
+ZH_z = (pow(zeta_v, n, p) - 1) % p
+
+# WRONG - causes overflow and incorrect results:
+# result = (ω ** n) % p  # Don't do this!
+# ZH_z = zeta_v**n - 1   # Don't do this!
+```
+
+**Key Difference**: `pow(base, exp, p)` is critical for field element exponentiation.
+
+**Why This Matters**:
+- `pow(ω, n, p)` computes `(ω^n) mod p` efficiently using modular exponentiation
+- `(ω ** n) % p` first computes huge intermediate value, then reduces (slow and can overflow)
+- Without `% p`, values can become 150+ digits and break verification
+- This was the **most critical bug** we fixed in verify_plonk
+
+**When to Use Each**:
+- **Polynomial variables** (`x`): Use `x**n` (handled by Polynomial class)
+- **Field elements** (integers mod p): Use `pow(base, n, p)`
+- **Small constants**: Either works, but `pow()` is more consistent
 
 ---
 
