@@ -1,0 +1,31 @@
+# ============================================================================
+# FIX FOR CELL 94: Add quotient_poly_blind
+# ============================================================================
+#
+# FIND THIS SECTION in Cell 94:
+#
+#   # Commit to quotient
+#   c_t = kzg.commit(quotient_poly)
+#   print(f"\nCommitment to quotient:")
+#   print(f"  c_t = {c_t}")
+#
+# REPLACE WITH THE CODE BELOW:
+# ============================================================================
+
+# Blind the quotient polynomial (for zero-knowledge)
+# We add random multiples of ZH since bigt is built from blinded polynomials
+b1_t, b2_t = 55555, 66666
+quotient_poly_blind = quotient_poly + (b1_t * x + b2_t) * ZH
+
+print(f"\nBlinding quotient polynomial:")
+print(f"  quotient_poly_blind = quotient_poly + ({b1_t}·x + {b2_t}) · ZH")
+print(f"  quotient_poly_blind: degree {quotient_poly_blind.degree()}")
+
+# Commit to blinded quotient
+c_t = kzg.commit(quotient_poly_blind)
+print(f"\nCommitment to blinded quotient:")
+print(f"  c_t = {c_t}")
+
+# Add to transcript
+transcript = push(c_t, transcript)
+print(f"\nUpdated transcript after c_t")
