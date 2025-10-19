@@ -6,10 +6,10 @@ Educational implementation of the PlonK zero-knowledge proof system with KZG pol
 
 ## Key Features
 
-✅ **SageMath-Free** - Refactored to use pure Python with `py_ecc` library. 
-✅ **Portable** - Works on any system without hardcoded paths. 
-✅ **Complete Solutions** - All exercises solved and verified. 
-✅ **Well-Documented** - Comprehensive explanations and examples
+- ✅ **SageMath-Free** - Refactored to use pure Python with `py_ecc` library. 
+- ✅ **Portable** - Works on any system without hardcoded paths. 
+- ✅ **Complete Solutions** - All exercises solved and verified. 
+- ✅ **Well-Documented** - Comprehensive explanations and examples
 
 ## Quick Start
 
